@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+    <link href= "{% static "bootstrap-3.3.4-dist/css/bootstrap.min.css" %}" rel="stylesheet">
+    <!—导入jQuery版本库，因为Bootstrap的JavaScript插件依赖于jQuery -->
+    <script src="{% static "bootstrap-3.3.4-dist/js/jquery-2.1.4.min.js" %}"></script>
+    <!—- 一次性导入所有Bootstrap的JavaScript插件（压缩版本） -->
+    <script src="{% static "bootstrap-3.3.4-dist/js/bootstrap.min.js" %}"></script>
+{#    <div class="page-header">#}
+  <h2>持续集成管理平台 <small>谢鹏</small></h2>
+{#</div>#}
+</head>
+
+<body>
+<div class="container">
+<div style="float: left; width: 10% ">
+    <ul><a href="/index"> 任务总览</a></ul>
+    <ul><a href="/node">节点管理</a></ul>
+</div>
+<div style="width: 80%">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th style="width: 15%">任务名称</th>
+                <th style="width: 25%">链接地址</th>
+                <th style="width: 10%">当前状态</th>
+                <th>操作选项</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for i in jobList %}
+                    <tr>
+                        <th scope="row">{{ 1 }}</th>
+                        <td>{{ i.name }}</td>
+                        <td>{{ i.url }}</td>
+                        <td>{{ i.color }}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-play-circle"></span> 构建
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-list-alt"></span> 查看日志
+                            </button>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div style="float: right;width: 10%">
+    testcontestfhlhsdfjlkjds;f
+</div>
+</div>
+</body>
+
+    <!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+  <div class="container" style="text-align: center">
+    <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> and <a href="https://twitter.com/fat" target="_blank">@fat</a>.</p>
+    <p>Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
+    <p>本项目源码受 <a rel="license" href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>开源协议保护，文档受 <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a> 开源协议保护。</p>
+
+  </div>
+</footer>
+</html>
