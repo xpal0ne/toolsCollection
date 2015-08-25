@@ -11,62 +11,76 @@
     <!—- 一次性导入所有Bootstrap的JavaScript插件（压缩版本） -->
     <script src="{% static "bootstrap-3.3.4-dist/js/bootstrap.min.js" %}"></script>
 {#    <div class="page-header">#}
-  <h2>持续集成管理平台 <small>谢鹏</small></h2>
+  <h2 class="page-header">持续集成管理平台 <small>谢鹏</small></h2>
 {#</div>#}
 </head>
 
 <body>
-<div class="container">
-<div style="float: left; width: 10% ">
-    <ul><a href="/index"> 任务总览</a></ul>
-    <ul><a href="/node">节点管理</a></ul>
-</div>
-<div style="width: 80%">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th style="width: 15%">任务名称</th>
-                <th style="width: 25%">链接地址</th>
-                <th style="width: 10%">当前状态</th>
-                <th>操作选项</th>
-            </tr>
-        </thead>
-        <tbody>
-                {% for i in jobList %}
-                    <tr>
-                        <th scope="row">{{ 1 }}</th>
-                        <td>{{ i.name }}</td>
-                        <td>{{ i.url }}</td>
-                        <td>{{ i.color }}</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">
-                                <span class="glyphicon glyphicon-play-circle"></span> 构建
-                            </button>
-                            <button type="button" class="btn btn-primary">
-                                <span class="glyphicon glyphicon-list-alt"></span> 查看日志
-                            </button>
+    <div class="container-fluid"" style="width: 100%">
+        <div class="row-fluid">
+            <div class="span2" style="float: left; width: 10% ">
+                <ul><a href="/index"> 任务总览</a></ul>
+                <ul><a href="/node">节点管理</a></ul>
+            </div>
+            <div class="span6" style="float: left; width: 70%">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th style="width: 15%">任务名称</th>
+                            <th style="width: 25%">链接地址</th>
+                            <th style="width: 10%">当前状态</th>
+                            <th>操作选项</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in jobList %}
+                            <tr>
+                                <th scope="row">{{ 1 }}</th>
+                                <td>{{ i.name }}</td>
+                                <td>{{ i.url }}</td>
+                                <td>{{ i.color }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-play-circle"></span> 构建
+                                    </button>
+                                    <button type="button" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-list-alt"></span> 查看日志
+                                    </button>
 
-                        </td>
-                    </tr>
-                {% endfor %}
-        </tbody>
-    </table>
-</div>
-<div style="float: right;width: 10%">
-    testcontestfhlhsdfjlkjds;f
-</div>
-</div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+             </table>
+            </div>
+            <div class="span3" style="float: left; width: 20%; height:100%; border: 1px solid #010202">
+                测试输出<br>
+                Started by user XP
+[EnvInject] - Loading node environment variables.
+Building remotely on centos in workspace /var/jenkins/workspace/pythonBuild
+[pythonBuild] $ /bin/sh -xe /tmp/hudson7002117294767731202.sh
++ python run.py
+=============================================
+>TEC测试环境控制程序执行开始
+>>test.jd.com 未运行...
+>>test.jd.com已处于关闭状态,无需重复关闭.
+>>test.jd.com 未运行...
+sh: ./start.sh: Permission denied
+>>test.jd.com 未运行...
+/export/App/test.jd.com/tomcatlog/catalina.out 不存在,请检查测试环境.
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
+            </div>
+        </div>
+    </div>
 </body>
-
-    <!-- Footer
-================================================== -->
+<!-- Footer================================================== -->
 <footer class="bs-docs-footer" role="contentinfo">
   <div class="container" style="text-align: center">
     <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> and <a href="https://twitter.com/fat" target="_blank">@fat</a>.</p>
     <p>Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
     <p>本项目源码受 <a rel="license" href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>开源协议保护，文档受 <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a> 开源协议保护。</p>
-
   </div>
 </footer>
 </html>
