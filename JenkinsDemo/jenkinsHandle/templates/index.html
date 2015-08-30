@@ -6,40 +6,56 @@
     <!-- Bootstrap -->
     {% load staticfiles %}
     <link href= "{% static "bootstrap-3.3.4-dist/css/bootstrap.min.css" %}" rel="stylesheet">
-    <!—导入jQuery版本库，因为Bootstrap的JavaScript插件依赖于jQuery -->
-    <script src="{% static "bootstrap-3.3.4-dist/js/jquery-2.1.4.min.js" %}"></script>
-    <!—- 一次性导入所有Bootstrap的JavaScript插件（压缩版本） -->
-    <script src="{% static "bootstrap-3.3.4-dist/js/bootstrap.min.js" %}"></script>
+
 {#    <div class="page-header">#}
-  <h2 class="page-header">持续集成管理平台 <small>谢鹏</small></h2>
+{#  <h2 class="page-header">持续集成管理平台 <small>谢鹏</small></h2>#}
 {#</div>#}
 </head>
 
 <body>
-    <div class="container-fluid"" style="width: 100%">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Jenkins后台管理</a>
+        </div>
+      </div>
+    </nav>
+<br>
+<br>
+<br>
+
+    <div class="container-fluid">
         <div class="row-fluid">
             <div class="span2" style="float: left; width: 10% ">
-                <ul><a href="/index"> 任务总览</a></ul>
-                <ul><a href="/node">节点管理</a></ul>
+                <ul><a href="/index"><h3> 任务总览</h3></a></ul>
+                <ul><a href="/node"><h3>节点管理</h3></a></ul>
             </div>
-            <div class="span6" style="float: left; width: 70%">
-                <table class="table">
+            <div class="span5" style="float: left; width: 70%">
+                <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th style="width: 1%"></th>
+                            <th style="width: 5%">#</th>
                             <th style="width: 15%">任务名称</th>
                             <th style="width: 25%">链接地址</th>
                             <th style="width: 10%">当前状态</th>
-                            <th>操作选项</th>
+                            <th style="width: 15%">操作选项</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for i in jobList %}
+                        {% for i in jobList  %}
                             <tr>
-                                <th scope="row">{{ 1 }}</th>
-                                <td>{{ i.name }}</td>
-                                <td>{{ i.url }}</td>
-                                <td>{{ i.color }}</td>
+                                <th><input type="checkbox"></th>
+                                <th scope="row">{{ i.0 }}</th>
+                                <td>{{ i.1.name }}</td>
+                                <td>{{ i.1.url }}</td>
+                                <td>{{ i.1.color }}</td>
                                 <td>
                                     <button type="button" class="btn btn-primary">
                                         <span class="glyphicon glyphicon-play-circle"></span> 构建
@@ -54,7 +70,7 @@
                 </tbody>
              </table>
             </div>
-            <div class="span3" style="float: left; width: 20%; height:100%; border: 1px solid #010202">
+            <div class="span3" style="float: left; width: 20%; border: 1px solid #010202">
                 测试输出<br>
                 Started by user XP
 [EnvInject] - Loading node environment variables.
@@ -83,4 +99,10 @@ Finished: FAILURE
     <p>本项目源码受 <a rel="license" href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>开源协议保护，文档受 <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a> 开源协议保护。</p>
   </div>
 </footer>
+
+    <!—导入jQuery版本库，因为Bootstrap的JavaScript插件依赖于jQuery -->
+    <script src="{% static "bootstrap-3.3.4-dist/js/jquery-2.1.4.min.js" %}"></script>
+    <!—- 一次性导入所有Bootstrap的JavaScript插件（压缩版本） -->
+    <script src="{% static "bootstrap-3.3.4-dist/js/bootstrap.min.js" %}"></script>
+
 </html>

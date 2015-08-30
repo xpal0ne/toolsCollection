@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'jenkinsHandle'
+    'jenkinsHandle',
+    'logworker'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'JenkinsDemo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["./jenkinsHandle/templates"],
+        'DIRS': ["./jenkinsHandle/templates", "./logworker/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
