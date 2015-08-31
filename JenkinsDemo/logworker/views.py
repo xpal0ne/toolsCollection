@@ -7,6 +7,9 @@ def show_index(request):
     return render_to_response('index2.html')
 
 def log_check(request):
-    tn = log_operation.TestNode('127.0.0.1', 'root', '12345')
+    host = request.GET['host']
+    username = request.GET['user_name']
+    passwd = request.GET['passwd']
+    tn = log_operation.TestNode(host, username, passwd)
     data = tn.get_log('vc.jd.com', 'n400')
     return render_to_response('index2.html', {'data': data})

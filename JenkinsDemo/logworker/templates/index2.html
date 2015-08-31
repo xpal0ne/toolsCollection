@@ -1,16 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+    <link href= "{% static "bootstrap-3.3.4-dist/css/bootstrap.min.css" %}" rel="stylesheet">
+</head>
 <body>
 <p>请输入两个数字</p>
  
  
 <form action="/log_check/" method="get">
-    a: <input type="text" name="a"> <br>
-    b: <input type="text" name="b"> <br>
+    测试机地址: <input type="text" class="form-control" name="host">
+    用户名: <input type="text" class="form-control" name="user_name">
+    密码: <input type="text" class="form-control" name="passwd"> <br>
      
-    <input type="submit" value="提交">
+    <input type="submit" class="btn btn-default" value="提交">
 </form>
  
 {{ data }}
 </body>
+
+
+    <!—导入jQuery版本库，因为Bootstrap的JavaScript插件依赖于jQuery -->
+    <script src="{% static "bootstrap-3.3.4-dist/js/jquery-2.1.4.min.js" %}"></script>
+    <!—- 一次性导入所有Bootstrap的JavaScript插件（压缩版本） -->
+    <script src="{% static "bootstrap-3.3.4-dist/js/bootstrap.min.js" %}"></script>
+
 </html>
