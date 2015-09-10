@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^node/', 'jenkinsHandle.views.node_list'),
     url(r'^index/', 'jenkinsHandle.views.job_list'),
     url(r'^log_check', 'logworker.views.log_check'),
-    url(r'^log/', 'logworker.views.show_index')
+    url(r'^log/', 'logworker.views.show_index'),
+    url(r'^interface/', 'interfaceChecker.views.show_index')
 ]
